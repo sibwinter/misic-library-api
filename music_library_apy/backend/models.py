@@ -59,6 +59,7 @@ class SongsInAlbums(models.Model):
         Song,
         on_delete=models.CASCADE,
         verbose_name='Песня',
+        related_name='albums'
     )
     number_in_album = models.PositiveSmallIntegerField(
         verbose_name='Номер песни в альбоме',

@@ -22,5 +22,21 @@ class AlbumSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Album
-        fields = ['name', 'year_of_release', 'songs']
+        fields = ['pk','name', 'year_of_release', 'songs']
+        
+
+class SongsAlbumsSerializer(serializers.ModelSerializer):    
+    album_name = serializers.ReadOnlyField(source='album.name')
+
+    class Meta:
+        model = SongsInAlbums
+        fields = ['album_name','number_in_album']
+        
+
+class SongSerializer(serializers.ModelSerializer):   
+    albums = SongsAlbumsSerializer(many=True)
+    
+    class Meta:
+        model = Song
+        fields = ['pk','albums']
         

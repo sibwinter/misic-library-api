@@ -6,7 +6,8 @@ from backend import views
 
 router = routers.DefaultRouter()
 router.register(r'albums', views.AlbumViewSet)
-#router.register(r'groups', views.GroupViewSet)
+router.register(r'authors', views.AuthorViewSet)
+router.register(r'songs', views.SongViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
