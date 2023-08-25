@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'backend',
+    'django.contrib.staticfiles',  #Необходим для  swagger ui's css/js файлов (По умолчанию включен)
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
