@@ -1,4 +1,4 @@
-from backend.models import Album, Author, Song, SongInAlbum
+from backend.models import Album, Author, Song, SongsInAlbums
 from rest_framework import serializers
 
 
@@ -8,14 +8,17 @@ class AuthorSerializer(serializers.ModelSerializer):
         fields = ['name',]
 
 
-class SongInAlbumSerializer(serializers.ModelSerializer):    
+class SongsInAlbumsSerializer(serializers.ModelSerializer):    
+    song_name = serializers.ReadOnlyField(source='song.name')
+
     class Meta:
-        model = Song
-        fields = ['song',]
+        model = SongsInAlbums
+        fields = ['song_name','number_in_album']
+        
 
 
 class AlbumSerializer(serializers.ModelSerializer):    
-
+    songs = SongsInAlbumsSerializer(many=True)
 
     class Meta:
         model = Album

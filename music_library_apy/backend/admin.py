@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from backend.models import Album, Author, Song, SongInAlbum
+from backend.models import Album, Author, Song, SongsInAlbums
+
 
 # Register your models here.
 
@@ -16,6 +17,6 @@ class AuthorAdmin(admin.ModelAdmin):
 class AlbumAdmin(admin.ModelAdmin):
     list_display = ('name',)
 
-@admin.register(SongInAlbum)
-class SongInAlbumAdmin(admin.ModelAdmin):
-    list_display = ('pk','album')
+@admin.register(SongsInAlbums)
+class SongsInAlbumAdmin(admin.ModelAdmin):
+    list_display = ('album',)
