@@ -1,5 +1,5 @@
 """
-ASGI config for music_library_apy project.
+ASGI config for music_library_api project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

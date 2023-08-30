@@ -9,7 +9,7 @@ class Author(models.Model):
 
     def __str__(self):
         return f"Автор: {self.name}"
-    
+
 
 class Album(models.Model):
     name = models.CharField(
@@ -22,11 +22,10 @@ class Album(models.Model):
         verbose_name='Альбом',
     )
     year_of_release = models.PositiveSmallIntegerField(
-    
-        blank=True, 
+        blank=True,
         null=True
     )
-    
+
     def __str__(self):
         return f"Альбом: {self.name}"
 
@@ -38,13 +37,11 @@ class Song(models.Model):
     )
     album = models.ManyToManyField(
         Album,
-        through='SongsInAlbums',  
+        through='SongsInAlbums',
     )
+
     def __str__(self):
         return f"название песни: {self.name}"
-    
-
-
 
 
 class SongsInAlbums(models.Model):
@@ -67,8 +64,7 @@ class SongsInAlbums(models.Model):
 
     def __str__(self):
         return f"в альбоме {self.album} {self.number_in_album}: {self.song}"
-    
+
     @property
     def song_name(self):
         return self.song
-    
