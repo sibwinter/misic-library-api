@@ -9,8 +9,8 @@ from drf_yasg import openapi
 
 
 router = routers.DefaultRouter()
-router.register(r'albums', views.AlbumViewSet)
-router.register(r'authors', views.AuthorViewSet)
+router.register(r'albums', views.AlbumViewSet, basename='albums')
+router.register(r'authors', views.AuthorViewSet, basename='authors')
 router.register(r'songs', views.SongViewSet)
 
 
@@ -40,3 +40,5 @@ urlpatterns = [
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls'))
 ]
+
+urlpatterns += router.urls
